@@ -1,5 +1,6 @@
 import { Easy } from "./Easy";
-import { ColorName } from "./shared/color";
+import { Color, ColorName } from "./shared/color";
+import { ElectricUnit } from "./shared/unit";
 
 /**
  * For Easy Difficulty
@@ -8,12 +9,12 @@ import { ColorName } from "./shared/color";
 const easy = new Easy();
 
 // Defined and revoke
-console.log("---------") // Devider
+console.log("---------"); // Devider
 
 const hello_world = easy.HelloWorld();
 console.log(`1. Hello World: "${hello_world}"`);
 
-console.log("---------") // Devider
+console.log("---------"); // Devider
 
 let two_fer!: string;
 
@@ -22,20 +23,43 @@ console.log(`2.1. Two Fer Without Param: "${two_fer}"`);
 two_fer = easy.TwoFer("Alice");
 console.log(`2.2. Two Fer With Param: "${two_fer}"`);
 
-console.log("---------") // Devider
+console.log("---------"); // Devider
 
 let colors!: ColorName[];
-let resistor_color_duo !: string;
+let resistor_color_duo!: string;
 
 colors = [ColorName.Black, ColorName.Blue];
 resistor_color_duo = easy.ResistorColorDuo(colors);
-console.log(`3.1. Resistor With 2 Colors: "${resistor_color_duo}"`);
+console.log(`3.1. Resistor Duo Colors: "${resistor_color_duo}"`);
 
-colors = [ColorName.Black, ColorName.Blue, ColorName.Brown, ColorName.Green];
+colors = [ColorName.Blue, ColorName.Black, ColorName.Brown, ColorName.Green];
 resistor_color_duo = easy.ResistorColorDuo(colors);
-console.log(`3.2. Resistor With Greater Than 2 Colors: "${resistor_color_duo}"`);
+console.log(
+	`3.2. Resistor Duo Colors - More Than Two: "${resistor_color_duo}"`
+);
 
-console.log("---------") // Devider
+console.log("---------"); // Devider
+
+let resistor_color_trio!: string;
+
+colors = [ColorName.Blue, ColorName.Brown];
+resistor_color_trio = easy.ResistorColorTrio(colors);
+console.log(
+	`4.1 Resistor Trio Colors - With Two Colors: "${resistor_color_trio} ${ElectricUnit.Ohm}"`
+);
+
+colors = [ColorName.Blue, ColorName.Brown, ColorName.Black];
+resistor_color_trio = easy.ResistorColorTrio(colors);
+console.log(
+	`4.2 Resistor Trio Colors - With Black Color In Last: "${resistor_color_trio} ${ElectricUnit.Ohm}"`
+);
+
+colors = [ColorName.Blue, ColorName.Brown, ColorName.Orange];
+resistor_color_trio = easy.ResistorColorTrio(colors);
+console.log(
+	`4.3 Resistor Trio Colors - Without Black Color In Last: "${resistor_color_trio} ${ElectricUnit.Ohm}"`
+);
+
+console.log("---------"); // Devider
 
 /** END */
-
